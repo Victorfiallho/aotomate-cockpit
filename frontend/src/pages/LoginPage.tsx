@@ -145,35 +145,35 @@ html, body {
 
 .login-form-header { margin-bottom: 36px; color: white; }
 .login-form-header h2 { font-size: 30px; font-weight: 800; margin-bottom: 6px; letter-spacing: -0.8px; }
-.login-form-header p { font-size: 14px; opacity: 0.75; font-weight: 400; }
+.login-form-header p { font-size: 14px; color: rgba(255,255,255,0.85); font-weight: 400; }
 
 .login-form { display: flex; flex-direction: column; gap: 18px; }
 .login-field { display: flex; flex-direction: column; gap: 7px; }
 .login-field label {
-  font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.85);
+  font-size: 12px; font-weight: 600; color: white;
   text-transform: uppercase; letter-spacing: 0.6px;
 }
 .login-field input {
-  padding: 13px 16px; border: 1.5px solid rgba(255,255,255,0.25); border-radius: 10px;
-  background: rgba(255,255,255,0.1); color: white; font-size: 15px; font-weight: 400;
+  padding: 13px 16px; border: 1.5px solid rgba(255,255,255,0.35); border-radius: 10px;
+  background: rgba(255,255,255,0.15); color: white; font-size: 15px; font-weight: 400;
   transition: all 0.25s ease; backdrop-filter: blur(4px);
 }
-.login-field input::placeholder { color: rgba(255,255,255,0.4); }
+.login-field input::placeholder { color: rgba(255,255,255,0.55); }
 .login-field input:focus {
-  outline: none; border-color: rgba(255,255,255,0.75);
-  background: rgba(255,255,255,0.16); box-shadow: 0 0 0 3px rgba(255,255,255,0.12);
+  outline: none; border-color: white;
+  background: rgba(255,255,255,0.22); box-shadow: 0 0 0 3px rgba(255,255,255,0.15);
 }
-.login-field input:hover:not(:focus) { border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.13); }
+.login-field input:hover:not(:focus) { border-color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.18); }
 
 .login-forgot { text-align: right; margin-top: -4px; }
 .login-forgot a {
-  font-size: 12px; color: rgba(255,255,255,0.6); font-weight: 500;
+  font-size: 12px; color: rgba(255,255,255,0.75); font-weight: 500;
   text-decoration: none; transition: color 0.2s;
 }
 .login-forgot a:hover { color: white; }
 
 .login-error {
-  padding: 11px 14px; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.15);
+  padding: 11px 14px; background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.35);
   border-radius: 8px; color: white; font-size: 13px; font-weight: 600;
   text-align: center; animation: shake 0.35s cubic-bezier(0.36,0,0.66,-0.56);
 }
