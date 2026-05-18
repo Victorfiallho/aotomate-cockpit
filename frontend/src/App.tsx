@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Sidebar from './components/Sidebar';
 import Topbar from './components/Topbar';
+import LoginPage from './pages/LoginPage';
 import DashboardPage from './pages/DashboardPage';
 import ClientsPage from './pages/ClientsPage';
 import AlertsPage from './pages/AlertsPage';
@@ -36,7 +37,10 @@ const pageConfig: Record<string, { title: string; subtitle: string; action?: str
 };
 
 function App() {
+  const [loggedIn, setLoggedIn] = useState(false);
   const [activePage, setActivePage] = useState('dashboard');
+
+  if (!loggedIn) return <LoginPage onLogin={() => setLoggedIn(true)} />;
   const config = pageConfig[activePage] ?? pageConfig.dashboard;
 
   const renderPage = () => {

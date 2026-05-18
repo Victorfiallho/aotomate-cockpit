@@ -829,6 +829,135 @@ button {
   letter-spacing: 0.01em;
 }
 
+/* ── Login ───────────────────────────────────────────── */
+
+.login-shell {
+  min-height: 100vh;
+  background: linear-gradient(160deg, #1c1b19 0%, #141413 100%);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.login-card {
+  background: #1e1d1b;
+  border: 1px solid #2a2926;
+  border-radius: 24px;
+  padding: 48px 40px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+}
+
+.login-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 36px;
+}
+
+.login-logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 18px;
+  background: #ffffff;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.login-title {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #f8f6f2;
+  letter-spacing: -0.02em;
+}
+
+.login-title span {
+  color: var(--brand);
+}
+
+.login-subtitle {
+  font-size: 0.78rem;
+  color: #5a5855;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-top: 2px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.login-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.login-field label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #7a7672;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.login-field input {
+  background: #141413;
+  border: 1px solid #2a2926;
+  border-radius: 12px;
+  padding: 13px 16px;
+  color: #f8f6f2;
+  font-size: 0.95rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.login-field input::placeholder {
+  color: #3a3835;
+}
+
+.login-field input:focus {
+  border-color: var(--brand);
+}
+
+.login-error {
+  font-size: 0.85rem;
+  color: var(--brand-light);
+  background: var(--brand-soft);
+  border-radius: 10px;
+  padding: 10px 14px;
+}
+
+.login-btn {
+  margin-top: 4px;
+  border: none;
+  background: var(--brand);
+  color: #ffffff;
+  padding: 14px;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(229, 57, 53, 0.35);
+  transition: opacity 0.15s ease, box-shadow 0.15s ease;
+}
+
+.login-btn:hover:not(:disabled) {
+  opacity: 0.92;
+  box-shadow: 0 8px 28px rgba(229, 57, 53, 0.45);
+}
+
+.login-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 /* ── Responsive ──────────────────────────────────────── */
 
 @media (max-width: 960px) {
