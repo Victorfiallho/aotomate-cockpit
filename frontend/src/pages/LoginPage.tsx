@@ -20,13 +20,22 @@ html, body {
   padding: 20px;
 }
 
+/* ── Painel esquerdo — FORM ── */
 .login-panel-left {
   flex: 1; max-width: 460px;
-  background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
+  background: linear-gradient(135deg, #E53935 0%, #c62828 100%);
   border-radius: 28px 0 0 28px; padding: 60px 50px;
-  display: flex; flex-direction: column; justify-content: space-between;
-  box-shadow: -10px 20px 60px rgba(0,0,0,0.3);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: -10px 20px 60px rgba(229,57,53,0.35);
+  position: relative; overflow: hidden;
   animation: slideInLeft 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.login-panel-left::before {
+  content: ''; position: absolute; top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 @keyframes slideInLeft {
@@ -34,21 +43,31 @@ html, body {
   to   { opacity: 1; transform: translateX(0); }
 }
 
+/* ── Painel direito — BRANDING ── */
+.login-panel-right {
+  flex: 1; max-width: 460px;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
+  border-radius: 0 28px 28px 0; padding: 60px 50px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  box-shadow: 10px 20px 60px rgba(0,0,0,0.3);
+  animation: slideInRight 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
 .login-panel-content { display: flex; flex-direction: column; gap: 48px; }
 
-.login-brand { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+/* ── Branding ── */
+.login-brand { display: flex; align-items: center; gap: 14px; }
 
 .login-logo {
   width: 48px; height: 48px;
   background: linear-gradient(135deg, #E53935 0%, #c62828 100%);
   border-radius: 12px; display: flex; align-items: center; justify-content: center;
   flex-shrink: 0; box-shadow: 0 8px 20px rgba(229,57,53,0.3);
-  animation: float 3s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-8px); }
 }
 
 .login-logo svg { width: 32px; height: 32px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); }
@@ -59,16 +78,17 @@ html, body {
 }
 .login-brand-name span { color: #E53935; font-weight: 800; }
 
+/* ── Hero ── */
 .login-hero { display: flex; flex-direction: column; gap: 16px; }
 .login-hero h1 { font-size: 32px; font-weight: 800; line-height: 1.3; color: #1a1a1a; letter-spacing: -1px; }
-.login-hero h1 br { display: none; }
 .login-hero p { font-size: 15px; color: #666; line-height: 1.6; font-weight: 500; }
 
+/* ── Features ── */
 .login-features { display: flex; flex-direction: column; gap: 14px; }
 .login-feature {
   display: flex; align-items: center; gap: 12px;
   font-size: 14px; color: #333; font-weight: 500;
-  animation: slideInLeft 0.8s ease-out backwards;
+  animation: slideInRight 0.8s ease-out backwards;
 }
 .login-feature:nth-child(1) { animation-delay: 0.2s; }
 .login-feature:nth-child(2) { animation-delay: 0.4s; }
@@ -77,39 +97,14 @@ html, body {
 .login-feature-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
 .login-feature-dot.green { background: #2E7D32; box-shadow: 0 0 8px rgba(46,125,50,0.4); }
 
+/* ── Panel footer ── */
 .login-panel-footer {
   display: flex; justify-content: space-between; align-items: center;
   padding-top: 24px; border-top: 1px solid #e0e0e0;
   font-size: 12px; color: #999; font-weight: 500;
 }
 
-.login-panel-right {
-  flex: 1; max-width: 460px;
-  background: linear-gradient(135deg, #E53935 0%, #c62828 100%);
-  border-radius: 0 28px 28px 0; padding: 60px 50px;
-  display: flex; align-items: center; justify-content: center;
-  box-shadow: 10px 20px 60px rgba(229,57,53,0.35);
-  position: relative; overflow: hidden;
-  animation: slideInRight 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.login-panel-right::before {
-  content: ''; position: absolute; top: -50%; right: -50%;
-  width: 200%; height: 200%;
-  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-  animation: pulse 4s ease-in-out infinite; pointer-events: none;
-}
-
-@keyframes pulse {
-  0%, 100% { transform: scale(1); opacity: 0.5; }
-  50%       { transform: scale(1.1); opacity: 0.8; }
-}
-
-@keyframes slideInRight {
-  from { opacity: 0; transform: translateX(40px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-
+/* ── Form ── */
 .login-form-wrap { width: 100%; z-index: 1; animation: fadeInUp 0.8s ease-out 0.2s backwards; }
 
 @keyframes fadeInUp {
@@ -119,7 +114,7 @@ html, body {
 
 .login-form-header { margin-bottom: 40px; text-align: center; color: white; }
 .login-form-header h2 { font-size: 28px; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.5px; }
-.login-form-header p { font-size: 14px; opacity: 0.95; font-weight: 500; letter-spacing: 0.3px; }
+.login-form-header p { font-size: 14px; opacity: 0.85; font-weight: 500; letter-spacing: 0.3px; }
 
 .login-form { display: flex; flex-direction: column; gap: 20px; }
 .login-field { display: flex; flex-direction: column; gap: 8px; }
@@ -129,16 +124,25 @@ html, body {
   background: rgba(255,255,255,0.12); color: white; font-size: 15px; font-weight: 500;
   transition: all 0.3s cubic-bezier(0.4,0,0.2,1); backdrop-filter: blur(4px);
 }
-.login-field input::placeholder { color: rgba(255,255,255,0.6); font-weight: 500; }
+.login-field input::placeholder { color: rgba(255,255,255,0.5); font-weight: 400; }
 .login-field input:focus {
   outline: none; border-color: rgba(255,255,255,0.8);
   background: rgba(255,255,255,0.18); box-shadow: 0 0 0 3px rgba(255,255,255,0.15);
 }
 .login-field input:hover { border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.15); }
 
+.login-forgot {
+  text-align: right; margin-top: -8px;
+}
+.login-forgot a {
+  font-size: 12px; color: rgba(255,255,255,0.7); font-weight: 500;
+  text-decoration: none; transition: color 0.2s;
+}
+.login-forgot a:hover { color: white; }
+
 .login-error {
-  padding: 12px 14px; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);
-  border-radius: 8px; color: rgba(255,255,255,0.95); font-size: 13px; font-weight: 600;
+  padding: 12px 14px; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 8px; color: white; font-size: 13px; font-weight: 600;
   text-align: center; animation: shake 0.4s cubic-bezier(0.36,0,0.66,-0.56);
 }
 @keyframes shake {
@@ -166,17 +170,17 @@ html, body {
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
+/* ── Responsive ── */
 @media (max-width: 1024px) {
   .login-shell { padding: 20px 10px; }
   .login-panel-left, .login-panel-right { max-width: 100%; padding: 50px 40px; }
   .login-hero h1 { font-size: 26px; }
-  .login-hero p { font-size: 14px; }
 }
 
 @media (max-width: 768px) {
-  .login-shell { flex-direction: column; gap: 0; padding: 0; }
-  .login-panel-left { max-width: 100%; border-radius: 0; padding: 40px 30px; flex: 0; }
-  .login-panel-right { max-width: 100%; border-radius: 0; padding: 40px 30px; min-height: 60vh; }
+  .login-shell { flex-direction: column-reverse; gap: 0; padding: 0; }
+  .login-panel-left { max-width: 100%; border-radius: 0; padding: 40px 30px; min-height: 60vh; }
+  .login-panel-right { max-width: 100%; border-radius: 0; padding: 40px 30px; flex: 0; }
   .login-panel-left, .login-panel-right { box-shadow: none; }
   .login-hero h1 { font-size: 24px; }
   .login-form-header h2 { font-size: 24px; }
@@ -224,58 +228,12 @@ export default function LoginPage({ onLogin }: Props) {
       <style>{css}</style>
       <div className="login-shell">
 
-        {/* ── Painel esquerdo ── */}
+        {/* ── Painel esquerdo — Form ── */}
         <div className="login-panel-left">
-          <div className="login-panel-content">
-            <div className="login-brand">
-              <div className="login-logo">
-                <svg width="36" height="36" viewBox="58 55 84 108" xmlns="http://www.w3.org/2000/svg">
-                  <g transform="translate(100, 110)">
-                    <circle cx="0" cy="10" r="36" fill="#E53935"/>
-                    <circle cx="-10" cy="-2" r="10" fill="#EF5350" opacity="0.5"/>
-                    <path d="M0 -26 Q2 -40 0 -48" fill="none" stroke="#2E7D32" strokeWidth="3.5" strokeLinecap="round"/>
-                    <path d="M0 -32 Q-8 -36 -12 -40" fill="none" stroke="#388E3C" strokeWidth="2.5" strokeLinecap="round"/>
-                    <path d="M-22 20 Q-36 0 -18 -16 Q0 -30 18 -16 Q36 0 22 20" fill="none" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" opacity="0.85"/>
-                    <path d="M22 20 L16 26 M22 20 L28 24" fill="none" stroke="#fff" strokeWidth="2.2" strokeLinecap="round"/>
-                  </g>
-                </svg>
-              </div>
-              <span className="login-brand-name">Ao<span>T</span>omate</span>
-            </div>
-
-            <div className="login-hero">
-              <h1>Atendimento inteligente,<br />gestão centralizada.</h1>
-              <p>Automatize o WhatsApp do seu negócio com IA e acompanhe tudo em tempo real.</p>
-            </div>
-
-            <div className="login-features">
-              <div className="login-feature">
-                <span className="login-feature-dot green" />
-                Agente IA humanizado no WhatsApp
-              </div>
-              <div className="login-feature">
-                <span className="login-feature-dot green" />
-                Tickets e atendimentos centralizados
-              </div>
-              <div className="login-feature">
-                <span className="login-feature-dot green" />
-                Relatórios automáticos de performance
-              </div>
-            </div>
-          </div>
-
-          <div className="login-panel-footer">
-            <span>AoTomate Sistemas</span>
-            <span>v0.1</span>
-          </div>
-        </div>
-
-        {/* ── Painel direito ── */}
-        <div className="login-panel-right">
           <div className="login-form-wrap">
             <div className="login-form-header">
-              <h2>Entrar no cockpit</h2>
-              <p>Acesso restrito à equipe AoTomate.</p>
+              <h2>Bem-vindo de volta</h2>
+              <p>Acesse o cockpit da AoTomate.</p>
             </div>
 
             <form className="login-form" onSubmit={handleSubmit}>
@@ -303,6 +261,10 @@ export default function LoginPage({ onLogin }: Props) {
                 />
               </div>
 
+              <div className="login-forgot">
+                <a href="#">Esqueci minha senha</a>
+              </div>
+
               {error && <div className="login-error">{error}</div>}
 
               <button type="submit" className="login-btn" disabled={loading}>
@@ -311,6 +273,52 @@ export default function LoginPage({ onLogin }: Props) {
                   : 'Entrar'}
               </button>
             </form>
+          </div>
+        </div>
+
+        {/* ── Painel direito — Branding ── */}
+        <div className="login-panel-right">
+          <div className="login-panel-content">
+            <div className="login-brand">
+              <div className="login-logo">
+                <svg width="36" height="36" viewBox="58 55 84 108" xmlns="http://www.w3.org/2000/svg">
+                  <g transform="translate(100, 110)">
+                    <circle cx="0" cy="10" r="36" fill="#E53935"/>
+                    <circle cx="-10" cy="-2" r="10" fill="#EF5350" opacity="0.5"/>
+                    <path d="M0 -26 Q2 -40 0 -48" fill="none" stroke="#2E7D32" strokeWidth="3.5" strokeLinecap="round"/>
+                    <path d="M0 -32 Q-8 -36 -12 -40" fill="none" stroke="#388E3C" strokeWidth="2.5" strokeLinecap="round"/>
+                    <path d="M-22 20 Q-36 0 -18 -16 Q0 -30 18 -16 Q36 0 22 20" fill="none" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" opacity="0.85"/>
+                    <path d="M22 20 L16 26 M22 20 L28 24" fill="none" stroke="#fff" strokeWidth="2.2" strokeLinecap="round"/>
+                  </g>
+                </svg>
+              </div>
+              <span className="login-brand-name">Ao<span>T</span>omate</span>
+            </div>
+
+            <div className="login-hero">
+              <h1>Atendimento inteligente, gestão centralizada.</h1>
+              <p>Automatize o WhatsApp do seu negócio com IA e acompanhe tudo em tempo real.</p>
+            </div>
+
+            <div className="login-features">
+              <div className="login-feature">
+                <span className="login-feature-dot green" />
+                Agente IA humanizado no WhatsApp
+              </div>
+              <div className="login-feature">
+                <span className="login-feature-dot green" />
+                Tickets e atendimentos centralizados
+              </div>
+              <div className="login-feature">
+                <span className="login-feature-dot green" />
+                Relatórios automáticos de performance
+              </div>
+            </div>
+          </div>
+
+          <div className="login-panel-footer">
+            <span>AoTomate Sistemas</span>
+            <span>v0.1</span>
           </div>
         </div>
 
